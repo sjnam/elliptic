@@ -393,10 +393,7 @@ func reduceBig(v *big.Int, p uint64) uint64 {
 	return new(big.Int).Mod(v, P).Uint64()
 }
 
-@ 시험은 삼심제다. 1심: 작은 소수들에서 무식한 전수 세기와 대조한다.
-전수 세기는 제곱잉여 표를 만들어 $x$마다 $f(x)$가 표에 있는지 본다 —
-$O(p)$ 시간, $O(p)$ 메모리의 정직한 셈이다.
-@(elliptic_test.go@>=
+@ @(elliptic_test.go@>=
 func naiveCount(p, a, b uint64) *big.Int {
 	f := NewFp(p)
 	isQR := make([]bool, p)
@@ -415,7 +412,10 @@ func naiveCount(p, a, b uint64) *big.Int {
 	return new(big.Int).SetUint64(n)
 }
 
-@ @(elliptic_test.go@>=
+@ 시험은 삼심제다. 1심: 작은 소수들에서 무식한 전수 세기와 대조한다.
+전수 세기는 제곱잉여 표를 만들어 $x$마다 $f(x)$가 표에 있는지 본다 —
+$O(p)$ 시간, $O(p)$ 메모리의 정직한 셈이다.
+@(elliptic_test.go@>=
 func TestSchoofSmall(t *testing.T) {
 	for _, p := range []uint64{7, 11, 101, 1009, 10007} {
 		f := NewFp(p)
