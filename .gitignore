@@ -1,0 +1,21 @@
+# GWEB tangle 산출물 (.w에서 생성)
+/elliptic.go
+/elliptic_test.go
+
+# GWEB weave + TeX 조판 산출물
+/elliptic.tex
+/elliptic.log
+/elliptic.toc
+/elliptic.scn
+/elliptic.idx
+
+# MetaPost 산출물 (.mp 원본은 남긴다)
+/ecfig.1
+/ecfig.2
+/ecfig.log
+/ecfig.mpx
+/mptextmp.mp
+/mpxerr.tex
+
+# Go
+/test/
