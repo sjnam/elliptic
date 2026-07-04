@@ -3,7 +3,6 @@
 @s WaitGroup int
 
 \input kotexgweb.tex
-\input supp-pdf
 \def\title{타원 곡선 답사기}
 
 @* 들어가며.

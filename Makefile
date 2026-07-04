@@ -25,11 +25,11 @@ elliptic.go: $(WSRC)
 
 doc: elliptic.pdf
 
-# MetaPost 그림: ecfig.mp -> ecfig.1, ecfig.2 (supp-pdf의 \convertMPtoPDF로 넣는다)
-ecfig.1 ecfig.2: ecfig.mp
-	mpost ecfig.mp
+# MetaPost 그림: ecfig.mp -> ecfig-1.pdf, ecfig-2.pdf
+ecfig-1.pdf ecfig-2.pdf: ecfig.mp
+	mptopdf ecfig.mp
 
-elliptic.pdf: $(WSRC) ecfig.1 ecfig.2
+elliptic.pdf: $(WSRC) ecfig-1.pdf ecfig-2.pdf
 	$(GWEAVE) elliptic.w && luatex elliptic.tex </dev/null
 
 test: tangle
@@ -38,4 +38,4 @@ test: tangle
 clean:
 	rm -f elliptic.go elliptic_test.go
 	rm -f elliptic.tex elliptic.log elliptic.toc elliptic.scn elliptic.idx
-	rm -f ecfig.1 ecfig.2 ecfig.log ecfig.mpx mptextmp.mp mpxerr.tex
+	rm -f ecfig.1 ecfig-1.pdf ecfig.2 ecfig-2.pdf ecfig.log ecfig.mpx mptextmp.mp mpxerr.tex
