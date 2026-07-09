@@ -2,7 +2,9 @@
 @s Reader int
 @s WaitGroup int
 
-\input kotexgweb.tex
+\input kotexgweb
+\input pdfpic
+
 \def\title{나의 타원곡선 답사기}
 
 @* 여행 배낭을 꾸리며.
