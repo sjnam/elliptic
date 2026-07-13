@@ -25,7 +25,7 @@ $$E:\ y^2=x^3+Ax+B,\qquad 4A^3+27B^2\ne0$$
 그 $R$를 $x$축에 대해 반사한 점이다.
 
 \medskip
-\centerline{\pdfpic{ecfig-1.pdf}}
+\centerline{\pic{ecfig-1.pdf}}
 \smallskip
 \centerline{그림 1: $y^2=x^3-2x+1$ 위의 덧셈. 현이 곡선과 만나는 셋째 점
 $R$를 반사하면 $P+Q$다.}
@@ -134,7 +134,7 @@ func (c *Curve) chord(m, x1, y1, x2 *big.Int) (*big.Int, *big.Int) {
 음함수 미분하면 $2y\,y'=3x^2+A$, 곧 접선의 기울기는 $m=(3x^2+A)/2y$다.
 
 \medskip
-\centerline{\pdfpic{ecfig-2.pdf}}
+\centerline{\pic{ecfig-2.pdf}}
 \smallskip
 \centerline{그림 2: 두 배. $P$에서의 접선이 곡선과 다시 만나는 점 $R$를
 반사하면 $2P$다.}

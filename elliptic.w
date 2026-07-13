@@ -3,7 +3,7 @@
 @s WaitGroup int
 
 \input kotexgweb
-\input pdfpic
+\input pic
 
 \def\title{나의 타원곡선 답사기}
 
