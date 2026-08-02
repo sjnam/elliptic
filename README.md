@@ -2,9 +2,7 @@
 
 타원 곡선과 그 암호를 스스로 익히려고 쓴 [GWEB](https://github.com/sjnam/gweb)
 문학적 프로그램이다. `.w` 원본 하나에서 Go 패키지 `elliptic`과 한글
-문서(PDF)가 함께 나온다. 자매편으로는 볼록 껍질 트릭 모음
-[cht](https://github.com/sjnam/cht), 동시 큐
-[go-lcrq](https://github.com/sjnam/go-lcrq)가 있다.
+문서(PDF)가 함께 나온다.
 
 목적지는 두 곳이다. 하나는 곡선 위의 점을 세는 **Schoof 알고리즘**, 다른
 하나는 그 곡선을 무기로 쓰는 **타원 곡선 암호**(ECDSA)다. 가는 길에 유한체,
