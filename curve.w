@@ -24,12 +24,13 @@ $$E:\ y^2=x^3+Ax+B,\qquad 4A^3+27B^2\ne0$$
 곡선과 반드시 세 번째 점 $R$에서 만나고(삼차 방정식이니 근이 셋), $P+Q$는
 그 $R$를 $x$축에 대해 반사한 점이다.
 
-\medskip
-\centerline{\pic{ecfig-1.pdf}}
-\smallskip
-\centerline{그림 1: $y^2=x^3-2x+1$ 위의 덧셈. 현이 곡선과 만나는 셋째 점
-$R$를 반사하면 $P+Q$다.}
-\medskip
+$$
+\mplibcode
+fig_chord;
+\endmplibcode
+$$
+\figcap{{\sl 그림 1.} $y^2=x^3-2x+1$ 위의 덧셈. 현이 곡선과 만나는 셋째 점
+  $R$를 반사하면 $P+Q$다.}
 
 ``셋째 교점을 그냥 합이라 하지, 왜 굳이 반사까지?''라는 물음이 당연히
 나온다. 반사가 없으면 결합법칙이 깨진다. 반사 규칙 아래에서는 한 직선 위의
@@ -133,12 +134,13 @@ func (c *Curve) chord(m, x1, y1, x2 *big.Int) (*big.Int, *big.Int) {
 @ 두 배. $Q$가 $P$로 다가가는 극한에서 현은 접선이 된다. 곡선 방정식을
 음함수 미분하면 $2y\,y'=3x^2+A$, 곧 접선의 기울기는 $m=(3x^2+A)/2y$다.
 
-\medskip
-\centerline{\pic{ecfig-2.pdf}}
-\smallskip
-\centerline{그림 2: 두 배. $P$에서의 접선이 곡선과 다시 만나는 점 $R$를
-반사하면 $2P$다.}
-\medskip
+$$
+\mplibcode
+fig_tangent;
+\endmplibcode
+$$
+\figcap{{\sl 그림 2.} 두 배. $P$에서의 접선이 곡선과 다시 만나는 점 $R$를
+  반사하면 $2P$다.}
 
 $y=0$이면 접선이 수직이라 $2P=\cal O$다---그런 $P$는 위수 $2$의 점이다.
 $(0,0)$ 관례 덕에 이 검사가 무한원점까지 한꺼번에 처리한다.

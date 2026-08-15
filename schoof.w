@@ -56,7 +56,7 @@ $\cal O$는 \GO/의 |nil|로 나타낸다. 하늘의 점에 이만큼 어울리�
 @<Schoof 알고리즘@>=
 type endo struct {
 	qr   *qring
-	x, y FpPoly // 점 $(x,\ y\cdot y_{\rm 유령})$
+	x, y FpPoly // 점 $(x,\ y\cdot y)$ — 뒤의 $y$가 장부 속 유령
 }
 
 func newEnd(qr *qring, x, y FpPoly) *endo {

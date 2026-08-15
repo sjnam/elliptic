@@ -3,7 +3,15 @@
 @s WaitGroup int
 
 \input kotexgweb
-\input pic
+\input luamplib.sty
+
+% 그림은 ecfig.mp 안에 fig_... 라는 이름의 매크로로 있다. 여기서 한 번 읽어 두고
+% 그림 자리마다 이름만 부른다. luamplib이 조판 중에 직접 그리므로 mpost를
+% 따로 돌릴 일이 없다.
+\everymplib{input ecfig;}
+
+% 그림 설명. \centerline과 달리 길면 여러 줄로 접힌다.
+\def\figcap#1{\smallskip{{\ninepoint\narrower\noindent #1}\par}\medskip}
 
 \def\title{나의 타원곡선 답사기}
 

@@ -9,13 +9,5 @@
 /elliptic.scn
 /elliptic.idx
 
-# MetaPost 산출물 (.mp 원본은 남긴다)
-/ecfig.1
-/ecfig.2
-/ecfig.log
-/ecfig.mpx
-/mptextmp.mp
-/mpxerr.tex
-
 # Go
 /test/

@@ -1,5 +1,8 @@
-% ecfig.mp -- 타원 곡선 y^2 = x^3 - 2x + 1 위의 현(덧셈)과 접선(두 배) 그림.
-% mpost ecfig.mp 하면 ecfig.1(그림 1), ecfig.2(그림 2)가 나온다.
+% ecfig.mp -- curve.w 의 그림 꾸러미.
+% luamplib이 문서 안에서 `input ecfig;` 로 읽어들인 뒤 이름으로 불러 쓴다.
+%   fig_chord   -- 현이 만드는 덧셈 $P+Q$
+%   fig_tangent -- 접선이 만드는 두 배 $2P$
+% 곡선은 $y^2 = x^3 - 2x + 1$ 이다.
 
 u := 30; % 단위 길이(bp)
 
@@ -31,7 +34,9 @@ enddef;
 
 def spot(expr z) = fill fullcircle scaled 3.6bp shifted z enddef;
 
-beginfig(1) % 덧셈: P + Q
+% ---------------------------------------------------------------- fig 1
+def fig_chord =
+beginfig(1); % 덧셈: P + Q
   drawaxes; drawcurve;
   pair P, Q, R, S;
   P := (-1, 1.41421)*u;     % P
@@ -47,8 +52,11 @@ beginfig(1) % 덧셈: P + Q
   label.urt(btex $R$ etex, R);
   label.lrt(btex $P{+}Q$ etex, S);
 endfig;
+enddef;
 
-beginfig(2) % 두 배: 2P
+% ---------------------------------------------------------------- fig 2
+def fig_tangent =
+beginfig(2); % 두 배: 2P
   drawaxes; drawcurve;
   pair P, R, S;
   P := (1.2, 0.57271)*u;       % P
@@ -62,5 +70,4 @@ beginfig(2) % 두 배: 2P
   label.ulft(btex $R$ etex, R);
   label.lrt(btex $2P$ etex, S);
 endfig;
-
-end
+enddef;

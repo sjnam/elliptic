@@ -25,11 +25,9 @@ elliptic.go: $(WSRC)
 
 doc: elliptic.pdf
 
-# MetaPost 그림: ecfig.mp -> ecfig-1.pdf, ecfig-2.pdf
-ecfig-1.pdf ecfig-2.pdf: ecfig.mp
-	mptopdf ecfig.mp
-
-elliptic.pdf: $(WSRC) ecfig-1.pdf ecfig-2.pdf
+# 그림은 따로 만들 것이 없다. ecfig.mp 의 이름 붙은 매크로를 luamplib 이
+# 조판 중에 직접 그리므로 mpost 를 돌릴 일이 없다.
+elliptic.pdf: $(WSRC) ecfig.mp
 	$(GWEAVE) elliptic.w && luatex elliptic.tex </dev/null
 
 test: tangle
@@ -38,4 +36,3 @@ test: tangle
 clean:
 	rm -f elliptic.go elliptic_test.go
 	rm -f elliptic.tex elliptic.log elliptic.toc elliptic.scn elliptic.idx
-	rm -f ecfig.1 ecfig-1.pdf ecfig.2 ecfig-2.pdf ecfig.log ecfig.mpx mptextmp.mp mpxerr.tex
