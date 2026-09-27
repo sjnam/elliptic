@@ -26,7 +26,22 @@ $$E:\ y^2=x^3+Ax+B,\qquad 4A^3+27B^2\ne0$$
 
 $$
 \mplibcode
-fig_chord;
+beginfig(1); % 덧셈: P + Q
+  drawaxes; drawcurve;
+  pair P, Q, R, S;
+  P := (-1, 1.41421)*u;     % P
+  Q := (0, 1)*u;            % Q
+  R := (1.17157, 0.51472)*u;   % 현의 셋째 교점 R
+  S := (1.17157, -0.51472)*u;  % P+Q = R의 반사
+  % 현: y = 1 - 0.41421x 를 양쪽으로 늘인 것
+  draw (-1.65u, 1.68345u)--(1.65u, 0.31655u) withcolor .3white;
+  draw R--S dashed evenly withcolor .3white;
+  spot(P); spot(Q); spot(R); spot(S);
+  label.ulft(btex $P$ etex, P);
+  label.ulft(btex $Q$ etex, Q);
+  label.urt(btex $R$ etex, R);
+  label.lrt(btex $P{+}Q$ etex, S);
+endfig;
 \endmplibcode
 $$
 \figcap{{\sl 그림 1.} $y^2=x^3-2x+1$ 위의 덧셈. 현이 곡선과 만나는 셋째 점
@@ -136,7 +151,20 @@ func (c *Curve) chord(m, x1, y1, x2 *big.Int) (*big.Int, *big.Int) {
 
 $$
 \mplibcode
-fig_tangent;
+beginfig(2); % 두 배: 2P
+  drawaxes; drawcurve;
+  pair P, R, S;
+  P := (1.2, 0.57271)*u;       % P
+  R := (1.70274, 1.59093)*u;   % 접선의 둘째 교점 R
+  S := (1.70274, -1.59093)*u;  % 2P = R의 반사
+  % P에서의 접선: 기울기 2.02551
+  draw (0.85u, -0.13622u)--(1.9u, 1.99057u) withcolor .3white;
+  draw R--S dashed evenly withcolor .3white;
+  spot(P); spot(R); spot(S);
+  label.lrt(btex $P$ etex, P);
+  label.ulft(btex $R$ etex, R);
+  label.lrt(btex $2P$ etex, S);
+endfig;
 \endmplibcode
 $$
 \figcap{{\sl 그림 2.} 두 배. $P$에서의 접선이 곡선과 다시 만나는 점 $R$를

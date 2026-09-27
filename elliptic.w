@@ -5,10 +5,43 @@
 \input kotexgweb
 \input luamplib.sty
 
-% 그림은 ecfig.mp 안에 fig_... 라는 이름의 매크로로 있다. 여기서 한 번 읽어 두고
-% 그림 자리마다 이름만 부른다. luamplib이 조판 중에 직접 그리므로 mpost를
-% 따로 돌릴 일이 없다.
-\everymplib{input ecfig;}
+% 그림은 luamplib이 조판 중에 직접 그리므로 mpost를 따로 돌릴 일이 없다.
+% 그림마다 beginfig ... endfig를 그 자리에 적고, 여러 그림이 함께 쓰는
+% 도우미만 아래 정의 전용 토막에 한 번 둔다. inherit를 켜야 앞 토막의 정의가
+% 뒤 토막까지 살아남는다.
+\mplibcodeinherit{enable}
+\mplibcode
+% 곡선은 $y^2 = x^3 - 2x + 1$ 이다.
+u := 30; % 단위 길이(bp)
+
+vardef yy(expr x) = sqrt(max(0, x*x*x - 2*x + 1)) enddef;
+
+% [xa,xb] 구간에서 곡선의 위쪽 절반을 잇는 경로
+vardef arcpath(expr xa, xb, n) =
+  (xa*u, yy(xa)*u)
+  for i=1 upto n: .. ((xa+(xb-xa)*i/n)*u, yy(xa+(xb-xa)*i/n)*u) endfor
+enddef;
+
+def drawaxes =
+  drawarrow (-2.1u, 0)--(2.55u, 0) withcolor .55white;
+  drawarrow (0, -2.15u)--(0, 2.35u) withcolor .55white;
+enddef;
+
+def drawcurve =
+  begingroup
+    save ovalu, branchu;
+    path ovalu, branchu;
+    ovalu := arcpath(-1.61803, 0.61803, 48);
+    branchu := arcpath(1, 2.25, 40);
+    pickup pencircle scaled 1bp;
+    draw ovalu .. reverse(ovalu reflectedabout ((0,0),(1,0))) .. cycle;
+    draw (reverse(branchu reflectedabout ((0,0),(1,0)))) .. branchu;
+    pickup defaultpen;
+  endgroup
+enddef;
+
+def spot(expr z) = fill fullcircle scaled 3.6bp shifted z enddef;
+\endmplibcode
 
 % 그림 설명. \centerline과 달리 길면 여러 줄로 접힌다.
 \def\figcap#1{\smallskip{{\ninepoint\narrower\noindent #1}\par}\medskip}

@@ -25,9 +25,9 @@ elliptic.go: $(WSRC)
 
 doc: elliptic.pdf
 
-# 그림은 따로 만들 것이 없다. ecfig.mp 의 이름 붙은 매크로를 luamplib 이
+# 그림은 따로 만들 것이 없다. .w 안에 적힌 MetaPost 코드를 luamplib 이
 # 조판 중에 직접 그리므로 mpost 를 돌릴 일이 없다.
-elliptic.pdf: $(WSRC) ecfig.mp
+elliptic.pdf: $(WSRC)
 	$(GWEAVE) elliptic.w && luatex elliptic.tex </dev/null
 
 test: tangle
